@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 class Node:
 
     def __init__(self, data):
@@ -11,7 +12,8 @@ class Node:
 def get_min(root, min):
     if not root:
         return min
-
+    # pre-order traversal.
+    # Processing the node before traversal. Key point is to set min on traversal
     if root.data < min:
         min = root.data
     min = get_min(root.left, min)
