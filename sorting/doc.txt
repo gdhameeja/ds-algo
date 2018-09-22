@@ -1,0 +1,6 @@
+It works by maintaining the count of numbers less than a particular
+number. We get this by using the prefix sum.
+Now as we know the count of numbers less than a particular number, we can place
+that particular number at the latest position.
+Whoever, invented this was pretty smart.
+This is a sorting algo that does not fall under the class of comparison sorting algorithms.
