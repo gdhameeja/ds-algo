@@ -15,13 +15,13 @@ def count_sort(arr):
 
     for i in arr:
         result[count[i] - 1] = i
-
+        count[i] -= 1
     return result
 
 if __name__ == "__main__":
-    arr = [6, 2, 4, 9, 101, 1]
+    arr = [6, 2, 4, 9, 101, 1, 1]
 
     # unit test
-    assert count_sort(arr) == [1, 2, 4, 6, 9, 101]
+    assert count_sort(arr) == [1, 1, 2, 4, 6, 9, 101]
     
     print(count_sort(arr))
