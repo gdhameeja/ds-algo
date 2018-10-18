@@ -1,25 +1,27 @@
-#!/usr/bin/python3
-
+#!/usr/bin/env python3
 
 def count_sort(arr):
-    max_num = max(arr)
-    count = [0] * 10
+    maximum = max(arr) + 1   # finding the length of count array K where all numbers in arr >=0 and <=K
 
+    count = [0] * maximum
     for i in arr:
-        count[i-1] += 1
+        count[i] += 1
 
-    # prefix sum to get the number of elements less than the current element.
-    for i in range(1, 10):
+    # find the number of numbers less than or equal to the current number
+    for i in range(1, len(count)):
         count[i] += count[i-1]
 
     result = [0] * len(arr)
 
-    for i in reversed(range(0, len(arr))):
-        result[count[arr[i]-1]-1] = arr[i]
-        count[arr[i]-1] -= 1
-
+    for i in arr:
+        result[count[i] - 1] = i
+        count[i] -= 1
     return result
 
 if __name__ == "__main__":
-    array = [5, 6, 1, 2, 7, 9]
-    print(count_sort(array))
+    arr = [6, 2, 4, 9, 101, 1, 1]
+
+    # unit test
+    assert count_sort(arr) == [1, 1, 2, 4, 6, 9, 101]
+    
+    print(count_sort(arr))
