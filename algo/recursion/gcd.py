@@ -9,6 +9,10 @@ def gcd(p, q):
     r = p%q
     return gcd(q, r)
 
+if __name__ == "__main__":
+    print(gcd(12, 3))
+
 assert gcd(12, 3) == 3
 print(gcd(12, 3))
     
+
